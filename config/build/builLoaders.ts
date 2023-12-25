@@ -2,9 +2,9 @@ import webpack from "webpack"
 
 export const builderLoaders = (): webpack.RuleSetRule[] => {
     const tsLoader = {
+        exclude: /node_modules/,
         test: /\.tsx?$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
     }
     const scssLoader = {
             test: /\.s[ac]ss$/i,
@@ -14,6 +14,7 @@ export const builderLoaders = (): webpack.RuleSetRule[] => {
                 "sass-loader",
             ],
         }
+
     return [tsLoader, scssLoader]
 }
 
